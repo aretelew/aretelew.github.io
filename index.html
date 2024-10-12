@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal website showcasing projects and resume">
+    <title>Anthony Retelewski - Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>Anthony Retelewski</h1>
+</header>
+
+<section id="about" class="about-section">
+    <div class="headshot-container">
+        <img src="/assets/IMG_0992.jpg?height=300&width=300" alt="Anthony Retelewski" class="headshot">
+    </div>
+    <div class="about-content">
+        <h2>About</h2>
+        <p>Hello! I am Anthony, a passionate developer with experience in [Your Skills]. This website showcases some of my projects and provides a link to my resume.</p>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="project-cards">
+        <div class="card" onclick="openModal('project1')">
+            <div class="container">
+                <h4><b>Project 1</b></h4>
+                <p>Brief description of Project 1.</p>
+            </div>
+        </div>
+        <div class="card" onclick="openModal('project2')">
+            <div class="container">
+                <h4><b>Project 2</b></h4>
+                <p>Brief description of Project 2.</p>
+            </div>
+        </div>
+        <div class="card" onclick="openModal('project3')">
+            <div class="container">
+                <h4><b>Project 3</b></h4>
+                <p>Brief description of Project 3.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+    </div>
+</div>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-buttons">
+        <a href="mailto:aretelew@gmail.com" class="contact-button email-button">Email Me</a>
+        <a href="https://www.linkedin.com/in/anthony-retelewski-4340402aa/" target="_blank" class="contact-button linkedin-button">LinkedIn</a>
+        <a href="resume.pdf" target="_blank" class="contact-button resume-button">Resume</a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Anthony Retelewski. All rights reserved.</p>
+</footer>
+<script src="scripts.js"></script>
+</body>
+</html>
