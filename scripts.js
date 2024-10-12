@@ -25,30 +25,6 @@ window.onclick = function(event) {
     }
 }
 
-// Function to handle the gradient animation
-function handleGradientAnimation(e) {
-    const cards = document.querySelectorAll('.card');
-
-    cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left; // x position within the card
-        const y = e.clientY - rect.top;  // y position within the card
-
-        const gradient = card.querySelector('.card-gradient');
-        gradient.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 80%)`;
-    });
-}
-
-// Add event listeners for mousemove and touchmove
-document.addEventListener('DOMContentLoaded', () => {
-    const projectSection = document.getElementById('projects');
-
-    projectSection.addEventListener('mousemove', handleGradientAnimation);
-    projectSection.addEventListener('touchmove', (e) => {
-        handleGradientAnimation(e.touches[0]);
-    });
-});
-
 window.addEventListener('load', function() {
     // Once the page is fully loaded, add the 'loaded' class to the body
     document.body.classList.add('loaded');
