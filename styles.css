@@ -1,6 +1,7 @@
-/* Import a modern Google Font for a more contemporary look */
+/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -13,40 +14,40 @@ body {
     background: linear-gradient(135deg, #535353, #000000) fixed;
     color: #333;
     min-height: 100vh;
-    padding: 0 20px; /* Add padding to give space around the content */
+    padding: 0 20px;
     opacity: 0;
     transition: opacity 2s ease;
-}
-/* Preloader Container */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #333; /* Dark background for preloader */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000; /* Ensure it stays above all content */
 }
 
 body.loaded {
     opacity: 1;
 }
 
-/* Hide the preloader after the page has loaded */
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
 body.loaded #preloader {
     display: none;
 }
 
-/* Header Section */
+/* Header Styles */
 header {
-    background: #000000; /* Changed to a solid color */
+    background: #000000;
     color: #fff;
     padding: 1.5rem;
     text-align: center;
-    position: sticky;
+    position: static;
     top: 0;
     z-index: 1000;
 }
@@ -59,6 +60,7 @@ header h1 {
     margin-bottom: 10px;
 }
 
+/* Navigation Styles */
 nav ul {
     list-style: none;
     padding: 0;
@@ -81,7 +83,7 @@ nav ul li a:hover {
     border-bottom: 2px solid #f1f1f1;
 }
 
-/* Section Styling */
+/* Section Styles */
 section {
     padding: 4rem;
     margin: 2rem 0;
@@ -107,7 +109,7 @@ h2 {
     font-weight: 600;
 }
 
-/* About Me Section */
+/* About Section Styles */
 #about p {
     font-size: 1.1rem;
     text-align: left;
@@ -116,7 +118,30 @@ h2 {
     color: #555;
 }
 
-/* Projects Section */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.headshot-container {
+    flex-shrink: 0;
+}
+
+.headshot {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.about-content {
+    flex-grow: 1;
+}
+
+/* Projects Section Styles */
 .project-cards {
     display: flex;
     gap: 30px;
@@ -142,7 +167,7 @@ h2 {
 
 .card:hover {
     box-shadow: 0 10px 18px rgba(0, 0, 0, 0.4);
-    transform: scale(1.05); /* Slightly enlarges the card */
+    transform: scale(1.05);
 }
 
 .card h4 {
@@ -163,46 +188,26 @@ h2 {
     z-index: 1;
 }
 
-/* Footer Section */
-footer {
-    text-align: center;
-    padding: 1.5rem;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    font-size: 1rem;
-    margin-top: 2rem;
-    letter-spacing: 1px;
-}
-
-footer a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-footer a:hover {
-    color: #92EFFD;
-}
-
+/* Modal Styles */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1001; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1001;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
-    backdrop-filter: blur(5px); /* Blur effect */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
 }
 
 .modal-content {
     background-color: #fff;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
@@ -221,31 +226,79 @@ footer a:hover {
     cursor: pointer;
 }
 
-/* About section layout */
-.about-section {
+/* Education Section Styles */
+#education .education-container {
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#education .education-item {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 2rem;
 }
 
-.headshot-container {
-    flex-shrink: 0;
+#education .school-info {
+    flex: 1;
+    text-align: left;
 }
 
-.headshot {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+#education .school-logo {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.about-content {
-    flex-grow: 1;
+#education .logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-/* Contact buttons */
+#education h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+#education .degree {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+#education .dates {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+#education .education-divider {
+    height: 1px;
+    background-color: #ccc;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    #education .education-container {
+        flex-direction: column;
+    }
+
+    #education .education-divider {
+        width: 100%;
+        height: 1px;
+        margin: 1rem 0;
+    }
+}
+
+
+/* Contact Button Styles */
 .contact-buttons {
     display: flex;
     justify-content: center;
@@ -281,7 +334,28 @@ footer a:hover {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Responsive design */
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 2rem;
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: #92EFFD;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .about-section {
         flex-direction: column;
