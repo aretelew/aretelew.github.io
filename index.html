@@ -11,46 +11,41 @@
 <header>
     <h1>Anthony Retelewski</h1>
 </header>
+<div class="main-container">
+    <section id="about" class="section about-section">
+        <div class="about-content">
+            <h2>About</h2>
+            <p>Hello! I am Anthony, a passionate developer with experience in [SKILLS]. This website showcases some of my projects and provides a link to my resume.</p>
+        </div>
+        <div class="headshot-container">
+            <img src="/docs/assets/images/headshot.JPG" alt="Anthony Retelewski" class="headshot">
+        </div>
+    </section>
 
-<section id="about" class="about-section">
-    <div class="headshot-container">
-        <img src="/docs/assets/images/headshot.JPG?height=300&width=300" alt="Anthony Retelewski" class="headshot">
-    </div>
-    <div class="about-content">
-        <h2>About</h2>
-        <p>Hello! I am Anthony, a passionate developer with experience in [SKILLS]. This website showcases some of my projects and provides a link to my resume.</p>
-    </div>
-</section>
+    <section id="projects">
+        <h2 id="projects-title" class="clickable">PROJECTS</h2>
+        <div class="project-cards">
+            <div class="card" onclick="openModal('project1')">
+                <div class="container">
+                    <h4><b>Project 1</b></h4>
+                    <p>Brief description of Project 1.</p>
+                </div>
+            </div>
+            <div class="card" onclick="openModal('project2')">
+                <div class="container">
+                    <h4><b>Project 2</b></h4>
+                    <p>Brief description of Project 2.</p>
+                </div>
+            </div>
+            <div class="card" onclick="openModal('project3')">
+                <div class="container">
+                    <h4><b>Project 3</b></h4>
+                    <p>Brief description of Project 3.</p>
+                </div>
+            </div>
 
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="project-cards">
-        <div class="card" onclick="openModal('project1')">
-            <div class="container">
-                <h4><b>Project 1</b></h4>
-                <p>Brief description of Project 1.</p>
-            </div>
         </div>
-        <div class="card" onclick="openModal('project2')">
-            <div class="container">
-                <h4><b>Project 2</b></h4>
-                <p>Brief description of Project 2.</p>
-            </div>
-        </div>
-        <div class="card" onclick="openModal('project3')">
-            <div class="container">
-                <h4><b>Project 3</b></h4>
-                <p>Brief description of Project 3.</p>
-            </div>
-        </div>
-        <div class="card" onclick="openModal('project3')">
-            <div class="container">
-                <h4><b>Project 4</b></h4>
-                <p>Brief description of Project 4.</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
 <div id="modal" class="modal">
     <div class="modal-content">
@@ -90,12 +85,12 @@
 <section id="contact">
     <h2>Contact</h2>
     <div class="contact-buttons">
-        <a href="mailto:aretelew@gmail.com" class="contact-button email-button">Email Me</a>
+        <a href="mailto:aretelew@gmail.com" class="contact-button email-button">Email</a>
         <a href="https://www.linkedin.com/in/anthony-retelewski-4340402aa/" target="_blank" class="contact-button linkedin-button">LinkedIn</a>
-        <a href="resume.pdf" target="_blank" class="contact-button resume-button">Resume</a>
+        <a href="https://github.com/aretelew" target="_blank" class="contact-button github-button">GitHub</a>
     </div>
 </section>
-
+</div>
 <footer>
     <p>&copy; 2024 Anthony Retelewski. All rights reserved.</p>
 </footer>

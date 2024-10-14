@@ -11,10 +11,9 @@
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.8;
-    background: linear-gradient(135deg, #535353, #000000) fixed;
+    background: linear-gradient(135deg, #9e9e9e, #000000) fixed;
     color: #333;
     min-height: 100vh;
-    padding: 0 20px;
     opacity: 0;
     transition: opacity 2s ease;
 }
@@ -60,6 +59,13 @@ header h1 {
     margin-bottom: 10px;
 }
 
+/* Main Container Styles */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 /* Navigation Styles */
 nav ul {
     list-style: none;
@@ -103,7 +109,7 @@ section.is-visible {
 h2 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
-    text-align: center;
+    text-align: left;
     color: #333;
     text-transform: uppercase;
     font-weight: 600;
@@ -120,12 +126,13 @@ h2 {
 
 .about-section {
     display: flex;
+    grid-template-columns: auto 1fr;
     align-items: center;
     gap: 2rem;
 }
 
-.headshot-container {
-    flex-shrink: 0;
+.about-content {
+    text-align: left;
 }
 
 .headshot {
@@ -137,16 +144,43 @@ h2 {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.about-content {
-    flex-grow: 1;
+.headshot-container {
+    flex-shrink: 0;
 }
 
+
 /* Projects Section Styles */
+#projects-title {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: all .5s ease;
+}
+
+#projects-title::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #333;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+#projects-title:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
 .project-cards {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
+    transition: opacity 0.3s ease;
 }
 
 .card {
@@ -200,6 +234,12 @@ h2 {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
 }
 
 .modal-content {
@@ -207,9 +247,27 @@ h2 {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    max-width: 80%;
+    width: auto;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.3s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-content .project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
 }
 
 .close {
@@ -277,7 +335,7 @@ h2 {
 }
 
 #education .education-divider {
-    height: 1px;
+    height: 2px;
     background-color: #ccc;
     width: 100%;
     margin: 1rem 0;
@@ -301,7 +359,7 @@ h2 {
 /* Contact Button Styles */
 .contact-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 1rem;
     margin-top: 1rem;
 }
@@ -324,8 +382,8 @@ h2 {
     color: white;
 }
 
-.resume-button {
-    background-color: #FFA500;
+.github-button {
+    background-color: #535353;
     color: white;
 }
 
