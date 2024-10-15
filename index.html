@@ -10,6 +10,14 @@
 <body>
 <header>
     <h1>Anthony Retelewski</h1>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 <div class="main-container">
     <section id="about" class="section about-section">
@@ -22,28 +30,27 @@
         </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="section">
         <h2 id="projects-title" class="clickable">PROJECTS</h2>
         <div class="project-cards">
-            <div class="card" onclick="openModal('project1')">
+            <div class="card" data-project="project1">
                 <div class="container">
-                    <h4><b>Project 1</b></h4>
+                    <h4>Project 1</h4>
                     <p>Brief description of Project 1.</p>
                 </div>
             </div>
-            <div class="card" onclick="openModal('project2')">
+            <div class="card" data-project="project2">
                 <div class="container">
-                    <h4><b>Project 2</b></h4>
+                    <h4>Project 2</h4>
                     <p>Brief description of Project 2.</p>
                 </div>
             </div>
-            <div class="card" onclick="openModal('project3')">
+            <div class="card" data-project="project3">
                 <div class="container">
-                    <h4><b>Project 3</b></h4>
+                    <h4>Project 3</h4>
                     <p>Brief description of Project 3.</p>
                 </div>
             </div>
-
         </div>
     </section>
 

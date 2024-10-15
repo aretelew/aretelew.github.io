@@ -4,12 +4,39 @@ function openModal(project) {
     const title = document.getElementById("modal-title");
     const description = document.getElementById("modal-description");
 
-    if (project === 'project1') {
-        title.innerText = "Project 1 Title";
-        description.innerText = "Detailed information about Project 1.";
-    } else if (project === 'project2') {
-        title.innerText = "Project 2 Title";
-        description.innerText = "Detailed information about Project 2.";
+    const projectDetails = {
+        project1: {
+            title: "Project 1 Title",
+            description: "Detailed information about Project 1. This project showcases [specific skills or technologies]. It addresses [problem or challenge] and demonstrates [key features or achievements]."
+        },
+        project2: {
+            title: "Project 2 Title",
+            description: "Detailed information about Project 2. This project demonstrates [specific skills or technologies]. It focuses on [main goal or purpose] and highlights [unique aspects or innovations]."
+        },
+        project3: {
+            title: "Project 3 Title",
+            description: "Detailed information about Project 3. This project highlights [specific skills or technologies]. It tackles [specific issue or need] and exhibits [notable outcomes or impacts]."
+        },
+        project4: {
+            title: "Project 4 Title",
+            description: "Detailed information about Project 4. This project features [specific skills or technologies]. It explores [particular area or concept] and showcases [key learnings or breakthroughs]."
+        },
+        project5: {
+            title: "Project 5 Title",
+            description: "Detailed information about Project 5. This project utilizes [specific skills or technologies]. It addresses [certain challenge or opportunity] and demonstrates [significant results or improvements]."
+        },
+        project6: {
+            title: "Project 6 Title",
+            description: "Detailed information about Project 6. This project implements [specific skills or technologies]. It focuses on [main objective or problem] and highlights [innovative approaches or solutions]."
+        }
+    };
+
+    if (projectDetails[project]) {
+        title.innerText = projectDetails[project].title;
+        description.innerText = projectDetails[project].description;
+    } else {
+        title.innerText = "Project Details";
+        description.innerText = "Details for this project are not available.";
     }
 
     modal.style.display = "block";
@@ -53,41 +80,36 @@ document.addEventListener('DOMContentLoaded', function() {
     sections.forEach(section => {
         observer.observe(section);
     });
-    // Click event listener to the projects title
+
+    // Add click event listener to the projects title
     const projectsTitle = document.getElementById('projects-title');
-    projectsTitle.addEventListener('click', showAllProjects);
-});
+    if (projectsTitle) {
+        projectsTitle.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'projects.html';
+        });
+    }
 
-
-function showAllProjects() {
-    const modal = document.getElementById("modal");
-    const modalContent = modal.querySelector(".modal-content");
-    const title = document.getElementById("modal-title");
-    const description = document.getElementById("modal-description");
-
-    title.innerText = "All Projects";
-
-    // Clone the existing project cards
-    const projectCards = document.querySelector('.project-cards').cloneNode(true);
-
-    // Remove the onclick attribute from the cloned cards
-    projectCards.querySelectorAll('.card').forEach(card => {
-        card.removeAttribute('onclick');
-        // Add a click event listener to show project details
-        card.addEventListener('click', () => {
-            const projectTitle = card.querySelector('h4').innerText;
-            const projectDescription = card.querySelector('p').innerText;
-            // WRITE showProjectDetails FUNCTION
-            showProjectDetails(projectTitle, projectDescription);
+    // Add click event listeners to project cards
+    const projectCards = document.querySelectorAll('.card');
+    projectCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const project = this.getAttribute('data-project');
+            openModal(project);
         });
     });
 
-    // Clear the description and append the cloned cards
-    description.innerHTML = '';
-    description.appendChild(projectCards);
+    // Add click event listener to close button in modal
+    const closeButton = document.querySelector('.modal .close');
+    if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+    }
 
-    modal.style.display = "block";
-    setTimeout(() => {
-        modal.classList.add("show");
-    }, 10);
-}
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('modal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+});
